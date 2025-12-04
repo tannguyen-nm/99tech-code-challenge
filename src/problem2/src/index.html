@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fancy Swap Form</title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="swap-card">
+      <h1>Swap Tokens</h1>
+
+      <form id="swap-form">
+        <!-- From Section -->
+        <div class="input-group">
+          <label for="from-amount">You Send</label>
+          <div class="input-wrapper">
+            <input
+              type="number"
+              id="from-amount"
+              placeholder="0.00"
+              min="0"
+              step="any"
+              autocomplete="off"
+            />
+            <div class="token-selector" id="from-token-selector">
+              <img id="from-token-icon" src="" alt="" class="token-icon" />
+              <span id="from-token-symbol">Select</span>
+              <span class="dropdown-arrow">▼</span>
+            </div>
+          </div>
+          <div class="error-message" id="from-amount-error"></div>
+        </div>
+
+        <!-- Swap Direction Button -->
+        <div class="swap-direction">
+          <button type="button" id="swap-direction-btn" class="swap-btn" title="Swap tokens">
+            ⇅
+          </button>
+        </div>
+
+        <!-- To Section -->
+        <div class="input-group">
+          <label for="to-amount">You Receive</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="to-amount"
+              placeholder="0.00"
+              readonly
+              autocomplete="off"
+            />
+            <div class="token-selector" id="to-token-selector">
+              <img id="to-token-icon" src="" alt="" class="token-icon" />
+              <span id="to-token-symbol">Select</span>
+              <span class="dropdown-arrow">▼</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Exchange Rate Display -->
+        <div class="exchange-rate" id="exchange-rate"></div>
+
+        <!-- Submit Button -->
+        <button type="submit" id="submit-btn" class="submit-btn" disabled>
+          <span class="btn-text">Select tokens to continue</span>
+          <span class="loader" style="display: none;"></span>
+        </button>
+
+        <!-- Success Message -->
+        <div class="success-message" id="success-message" style="display: none;">
+          Swap completed successfully!
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Token Selector Modal -->
+  <div class="modal" id="token-modal" style="display: none;">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Select a token</h2>
+        <button type="button" class="close-btn" id="close-modal">&times;</button>
+      </div>
+      <input type="text" id="token-search" placeholder="Search token..." class="token-search" />
+      <div class="token-list" id="token-list"></div>
+    </div>
+  </div>
+
+  <script type="module" src="/script.js"></script>
+</body>
+
+</html>

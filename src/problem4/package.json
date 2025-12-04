@@ -1,0 +1,20 @@
+{
+  "name": "problem4-sum-to-n-typescript",
+  "version": "1.0.0",
+  "description": "Three TypeScript implementations for summing to n",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/solution.js",
+    "dev": "node --loader ts-node/esm src/solution.ts",
+    "test": "npm run build && npm start"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "ts-node": "^10.9.0"
+  },
+  "ts-node": {
+    "esm": true
+  }
+}

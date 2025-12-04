@@ -1,0 +1,27 @@
+// Prisma schema for Tasks CRUD API
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// Note: SQLite doesn't support enums natively
+// Valid values: "pending", "in_progress", "completed"
+// Validation is handled at application level via Zod schemas
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  title       String
+  description String?
+  status      String   @default("pending")
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("tasks")
+  @@index([status])
+  @@index([createdAt])
+}
